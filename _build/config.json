@@ -1,0 +1,16 @@
+{
+    "name": "FredAceIntegration",
+    "lowCaseName": "fredaceintegration",
+    "description": "",
+    "author": "John Peca",
+    "version": "1.0.0",
+    "package":{
+        "elements": {
+            "plugins": [{
+                "name": "FredAceIntegration",
+                "file": "FredAceIntegration.php",
+                "events": ["OnChunkFormRender"]
+            }]
+        }
+    }
+}
