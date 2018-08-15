@@ -4,7 +4,7 @@ var langTools = ace.require('ace/ext/language_tools');
 var lang = ace.require('ace/lib/lang');
 
 var data = [];
-var cache = (function() {
+var fredAttributes = (function() {
     var defaultValues = {
         contenteditable: 'true',
         'data-fred-render': 'false',
@@ -55,12 +55,12 @@ var cache = (function() {
 langTools.addCompleter({
         getCompletions: function(editor, session, pos, prefix, callback) {
             if (prefix.length === 0) { callback(null, []); return }
-
-            cache.then(function(data){
-                callback(null, data);
-            });
-
             
+            if((editor.getSession().\$modeId === 'ace/mode/html') || (editor.getSession().\$modeId === 'ace/mode/twig')) {
+                fredAttributes.then(function(data){
+                    callback(null, data);
+                });
+            }
         }
     });
 })()</script>");
